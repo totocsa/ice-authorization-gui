@@ -140,7 +140,6 @@ class RoleHasPermissionsController extends IcseusdController
 
     public function store(Request $request)
     {
-        $a = $request->all();
         $validator = Validator::make($request->all(), [
             'roleid' => 'required|integer',
             'permissionid' => 'required|integer',
