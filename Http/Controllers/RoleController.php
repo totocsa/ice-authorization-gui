@@ -86,7 +86,6 @@ class RoleController extends IcseusdController
 
     public function indexQuery(): LengthAwarePaginator
     {
-        /* @var $query \App\Models\XModel */
         $t0 = 'roles';
 
         $query = $this->modelClassName::query()

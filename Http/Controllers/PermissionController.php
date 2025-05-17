@@ -231,7 +231,6 @@ class PermissionController extends IcseusdController
 
     public function indexQuery(): LengthAwarePaginator
     {
-        /* @var $query \App\Models\XModel */
         $t0 = 'routes';
         $t1 = 'permissions';
 
