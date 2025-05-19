@@ -3,9 +3,9 @@ import { Link } from '@inertiajs/vue3'
 import { useAuthorization } from "../useAuthorization.js"
 import { usePermissions } from "./usePermissions.js";
 import IceLayout from '@/Layouts/IceLayout.vue';
-import IcseusdIndex from '@/Components/totocsa/Icseusd/Index.vue';
-import ControllerMenu from '@/Components/totocsa/Icseusd/ControllerMenu.vue';
-import ActionMenu from '@/Components/totocsa/Icseusd/ActionMenu/ActionMenu.vue';
+import IcseusdIndex from '@IceIcseusd/Components/totocsa/Icseusd/Index.vue';
+import ControllerMenu from "@IceIcseusd/Components/totocsa/Icseusd/ControllerMenu.vue"
+import ActionMenu from '@IceIcseusd/Components/totocsa/Icseusd/ActionMenu/ActionMenu.vue';
 import LocalTranslation from "@/Components/totocsa/LocalTranslation/LocalTranslation.vue";
 
 const props = defineProps({
