@@ -7,7 +7,6 @@ use Illuminate\Routing\Controller;
 use Inertia\Inertia;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
-use Totocsa\AuthorizationGUI\Http\Models\Role;
 use Totocsa\Icseusd\Services\GenericConfigLoader;
 use Exception;
 
@@ -15,7 +14,6 @@ class ModelHasPermissionsController extends Controller
 {
     public $allModels = [
         ['className' => User::class, 'configName' => 'users'],
-        ['className' => Role::class, 'configName' => 'roles'],
     ];
 
     public function index()

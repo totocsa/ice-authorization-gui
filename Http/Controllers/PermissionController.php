@@ -92,89 +92,86 @@ class PermissionController extends IcseusdController
     public function fields()
     {
         return [
-            'routes-name' => [
-                'editableOnIndex' => true,
-                'form' => [
-                    'tag' => 'input',
+            'filter' => [
+                'routes-name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
+                'routes-uri' => [
+                    'tagName' => 'input',
+                    'attributes' => [
+                        'type' => 'text',
+                    ],
+                ],
+                'routes-methods' => [
+                    'tagName' => 'input',
+                    'attributes' => [
+                        'type' => 'text',
+                    ],
+                ],
+                'permissions-id' => [
+                    'tagName' => 'select',
+                    'options' => [
+                        ['value' => '', 'text' => ''],
+                        ['value' => '0', 'text' => 'Assigned'],
+                        ['value' => '1', 'text' => 'Revoked']
+                    ],
+                    'attributes' => [],
+                ],
+                'permissions-name' => [
+                    'tagName' => 'input',
+                    'attributes' => [
+                        'type' => 'text',
+                    ],
+                ],
+                'permissions-guard_name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
             ],
-            'routes-uri' => [
-                'form' => [
-                    'tag' => 'input',
+            'item' => [],
+            'form' => [
+                'routes-name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
+                'routes-uri' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
-            ],
-            'routes-methods' => [
-                'form' => [
-                    'tag' => 'input',
+                'routes-methods' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
-                    'attributes' => [
-                        'type' => 'text',
-                    ],
-                ],
-            ],
-            'permissions-id' => [
-                'filter' => [
-                    'tag' => 'select',
+                'permissions-id' => [
+                    'tagName' => 'select',
                     'options' => ['additionalData', 'permissions-idValueTexts'],
                     'attributes' => [],
                 ],
-                'form' => [
-                    'tag' => 'select',
-                    'options' => ['additionalData', 'permissions-idValueTexts'],
-                    'attributes' => [],
-                ],
-            ],
-            'permissions-name' => [
-                'form' => [
-                    'tag' => 'input',
+                'permissions-name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
+                'permissions-guard_name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
             ],
-            'permissions-guard_name' => [
-                'form' => [
-                    'tag' => 'input',
-                    'attributes' => [
-                        'type' => 'text',
-                    ],
-                ],
-                'filter' => [
-                    'tag' => 'input',
-                    'attributes' => [
-                        'type' => 'text',
-                    ],
-                ],
-            ],
+            'show' => [],
         ];
     }
 

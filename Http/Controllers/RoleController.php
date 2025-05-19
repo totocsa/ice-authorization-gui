@@ -57,21 +57,25 @@ class RoleController extends IcseusdController
     public function fields()
     {
         return [
-            'roles-name' => [
-                'editableOnIndex' => true,
-                'form' => [
-                    'tag' => 'input',
-                    'attributes' => [
-                        'type' => 'text',
-                    ],
-                ],
-                'filter' => [
-                    'tag' => 'input',
+            'filter' => [
+                'roles-name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
             ],
+            'item' => [
+                'roles-name' => [
+                    'tagName' => 'EDITABLE_TEXT_STARTER',
+                    'attributes' => [
+                        'type' => 'text',
+                    ],
+
+                ],
+            ],
+            'form' => [],
+            'show' => [],
         ];
     }
 

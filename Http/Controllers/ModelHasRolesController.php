@@ -14,7 +14,6 @@ class ModelHasRolesController extends Controller
 {
     public $allModels = [
         ['className' => User::class, 'configName' => 'users'],
-        ['className' => Role::class, 'configName' => 'roles'],
     ];
 
     public function index()

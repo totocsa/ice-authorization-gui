@@ -69,35 +69,36 @@ class RoleHasPermissionsController extends IcseusdController
     public function fields()
     {
         return [
-            'roles-name' => [
-                'editableOnIndex' => true,
-                'form' => [
-                    'tag' => 'input',
+            'filter' => [
+                'roles-name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
+                'roles-guard_name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'text',
                     ],
                 ],
             ],
-            'roles-guard_name' => [
-                'form' => [
-                    'tag' => 'input',
+            'item' => [],
+            'form' => [
+                'roles-name' => [
+                    'tagName' => 'input',
+                    'attributes' => [
+                        'type' => 'text',
+                    ],
+                ],
+                'roles-guard_name' => [
+                    'tagName' => 'input',
                     'attributes' => [
                         'type' => 'roles-guard_name',
                     ],
                 ],
-                'filter' => [
-                    'tag' => 'input',
-                    'attributes' => [
-                        'type' => 'text',
-                    ],
-                ],
             ],
+            'show' => [],
         ];
     }
 

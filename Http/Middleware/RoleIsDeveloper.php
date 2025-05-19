@@ -12,7 +12,7 @@ class RoleIsDeveloper
     {
         if (!$request->user() || !$request->user()->hasRole('Developer')) {
             //abort(403, 'Access denied');
-            return redirect()->route('/');
+            return redirect()->route('appRoot');
         }
 
         return $next($request);
