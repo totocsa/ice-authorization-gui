@@ -4,11 +4,11 @@ import { Link } from '@inertiajs/vue3'
 import { useAuthorization } from "../useAuthorization.js"
 import { useModelHasPermissions } from "./useModelHasPermissions.js"
 import { useDestroyItemForm } from "@IceIcseusd/Components/totocsa/Icseusd/js/useDestroyItemForm.js"
-import IceLayout from '@/Layouts/IceLayout.vue';
+import IceLayout from '@IceDatabaseTranslationLocally/Layouts/IceLayout.vue'
 import ControllerMenu from "@IceIcseusd/Components/totocsa/Icseusd/ControllerMenu.vue"
-import ActionMenu from '@IceIcseusd/Components/totocsa/Icseusd/ActionMenu/ActionMenu.vue';
-import GenericsIndex from "@IceIcseusd/Pages/Icseusd/Generics/Index.vue";
-import LocalTranslation from '@/Components/totocsa/LocalTranslation/LocalTranslation.vue';
+import ActionMenu from '@IceIcseusd/Components/totocsa/Icseusd/ActionMenu/ActionMenu.vue'
+import GenericsIndex from "@IceIcseusd/Pages/Icseusd/Generics/Index.vue"
+import LocalTranslation from '@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue'
 
 const props = defineProps({
     userRoles: Object,
@@ -28,9 +28,9 @@ watch(() => props.items, (newItems) => {
     if (!newItems.data.some(item => item.id === currentModel.value?.id)) {
         allPermissions.value = []
         modelPermissions.value = []
-        currentModel.value = null;
+        currentModel.value = null
     }
-}, { deep: true });
+}, { deep: true })
 
 const titleArray = ['Authorization', 'Authorization', 'Authorization', 'Model has permissions']
 
@@ -41,7 +41,7 @@ const { actionMenuConfig } = useAuthorization(props)
 
 const renderCurrentModel = () => {
     if (currentModel.value === null) {
-        return '&nbsp;';
+        return '&nbsp;'
     } else {
         let data = []
         for (let i of genericsProps.value.orders.item.fields) {
