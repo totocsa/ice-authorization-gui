@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Spatie\Permission\Models\Permission;
 use Totocsa\AuthorizationGUI\Http\Models\Route as RouteModel;
@@ -14,6 +13,7 @@ use Totocsa\Icseusd\Http\Controllers\IcseusdController;
 
 class PermissionController extends IcseusdController
 {
+    public $vuePageDir = 'vendor/totocsa/ice-authorization-gui/resources/js/Pages';
     public $modelClassName = RouteModel::class;
 
     public $sort = [
@@ -321,19 +321,5 @@ class PermissionController extends IcseusdController
         return [
             'permissions-idValueTexts' => $permissions_idValueTexts,
         ];
-    }
-
-    public function setVueComponents($prefix = '')
-    {
-        $name = last(explode('\\', $this::class));
-        $name = substr($name, 0, strlen($name) - strlen('Controller'));
-        $prefix .= Str::plural($name);
-
-        $routes = $this->getRoutes();
-
-        $this->vueComponents = [];
-        foreach ($routes as $k => $v) {
-            $this->vueComponents[$k] = "../../../vendor/totocsa/ice-authorization-gui/resources/js/Pages/$prefix/" . ucfirst(strtolower($k));
-        }
     }
 }
