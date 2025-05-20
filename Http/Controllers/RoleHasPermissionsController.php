@@ -5,6 +5,7 @@ namespace Totocsa\AuthorizationGUI\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -136,6 +137,20 @@ class RoleHasPermissionsController extends IcseusdController
         $results = $query->paginate($this->paging['per_page'], ['*'], null, $this->paging['page']);
 
         return $results;
+    }
+
+    public function setVueComponents($prefix = '')
+    {
+        $name = last(explode('\\', $this::class));
+        $name = substr($name, 0, strlen($name) - strlen('Controller'));
+        $prefix .= Str::plural($name);
+
+        $routes = $this->getRoutes();
+
+        $this->vueComponents = [];
+        foreach ($routes as $k => $v) {
+            $this->vueComponents[$k] = "../../../vendor/totocsa/ice-authorization-gui/resources/js/Pages/$prefix/" . ucfirst(strtolower($k));
+        }
     }
 
     public function store(Request $request)

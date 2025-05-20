@@ -1,7 +1,7 @@
 import { ref } from "vue"
 import { router } from "@inertiajs/vue3"
 import { useDestroyItemForm } from "@IceIcseusd/Components/totocsa/Icseusd/js/useDestroyItemForm.js"
-import { useModalLiFoStore } from "@/Components/totocsa/ModalLiFo/ModalLiFoStore.js"
+import { useModalLiFoStore } from "@IceModalLiFo/Components/totocsa/ModalLiFo/ModalLiFoStore.js"
 
 export function usePermissions(props) {
     const revokeToRevoke = ref(null)

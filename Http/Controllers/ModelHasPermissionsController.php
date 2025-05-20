@@ -12,6 +12,7 @@ use Exception;
 
 class ModelHasPermissionsController extends Controller
 {
+    public $indexComponent = '../../../vendor/totocsa/ice-authorization-gui/resources/js/Pages/Authorization/ModelHasPermissions/Index';
     public $allModels = [
         ['className' => User::class, 'configName' => 'users'],
     ];
@@ -25,7 +26,7 @@ class ModelHasPermissionsController extends Controller
             ]
         ];
 
-        return Inertia::render('Authorization/ModelHasPermissions/Index',  compact('allModels', 'revokeOrders'));
+        return Inertia::render($this->indexComponent,  compact('allModels', 'revokeOrders'));
     }
 
     public function permissions($configName, $modelId)
@@ -35,7 +36,7 @@ class ModelHasPermissionsController extends Controller
         $modelPermissions = $model->permissions;
         $allPermissions = $this->allPermissions();
 
-        return Inertia::render('Authorization/ModelHasPermissions/Index',  compact('modelPermissions', 'allPermissions'));
+        return Inertia::render($this->indexComponent,  compact('modelPermissions', 'allPermissions'));
     }
 
     public function store(Request $request)
@@ -46,7 +47,7 @@ class ModelHasPermissionsController extends Controller
         $modelPermissions = $model->permissions;
         $allPermissions = $this->allPermissions();
 
-        return Inertia::render('Authorization/ModelHasPermissions/Index',  compact('modelPermissions', 'allPermissions'));
+        return Inertia::render($this->indexComponent,  compact('modelPermissions', 'allPermissions'));
     }
 
     public function destroy($configName, $modelId, $permissionId)
@@ -57,7 +58,7 @@ class ModelHasPermissionsController extends Controller
         $modelPermissions = $model->permissions;
         $allPermissions = $this->allPermissions();
 
-        return Inertia::render('Authorization/ModelHasPermissions/Index',  compact('modelPermissions', 'allPermissions'));
+        return Inertia::render($this->indexComponent,  compact('modelPermissions', 'allPermissions'));
     }
 
     public function allModels()

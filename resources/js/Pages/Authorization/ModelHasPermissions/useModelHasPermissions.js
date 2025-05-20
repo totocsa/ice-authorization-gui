@@ -1,6 +1,6 @@
 import { ref } from "vue"
 import { router, usePage } from "@inertiajs/vue3"
-import { useModalLiFoStore } from "@/Components/totocsa/ModalLiFo/ModalLiFoStore.js"
+import { useModalLiFoStore } from "@IceModalLiFo/Components/totocsa/ModalLiFo/ModalLiFoStore.js"
 
 export function useModelHasPermissions(props) {
     const page = usePage()

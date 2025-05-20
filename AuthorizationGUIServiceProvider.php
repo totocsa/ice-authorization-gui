@@ -10,7 +10,8 @@ class AuthorizationGUIServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $groups = 'ice-authorization-gui';
+        $groupsBase = 'ice-authorization-gui';
+        $groups = "$groupsBase-migrations";
         $global = $GLOBALS;
         $isPublish = isset($global['argv']) && isset($global['argv'][0]) && $global['argv'][0] === 'artisan'
             && isset($global['argv'][1]) && $global['argv'][1] === 'vendor:publish'
@@ -27,8 +28,7 @@ class AuthorizationGUIServiceProvider extends ServiceProvider
             $paths[$fileInfo->getPathname()] = $publishAs;
         }
 
-        $paths[__DIR__ . '/resources'] = resource_path();
-
         $this->publishes($paths, $groups);
+        $this->publishes([__DIR__ . '/resources' =>  resource_path()], "$groupsBase-resources");
     }
 }

@@ -12,6 +12,8 @@ use Exception;
 
 class ModelHasRolesController extends Controller
 {
+    public $indexComponent = '../../../vendor/totocsa/ice-authorization-gui/resources/js/Pages/Authorization/ModelHasRoles/Index';
+
     public $allModels = [
         ['className' => User::class, 'configName' => 'users'],
     ];
@@ -25,7 +27,7 @@ class ModelHasRolesController extends Controller
             ]
         ];
 
-        return Inertia::render('Authorization/ModelHasRoles/Index',  compact('allModels', 'roleOrders'));
+        return Inertia::render($this->indexComponent,  compact('allModels', 'roleOrders'));
     }
 
     public function roles($configName, $modelId)
@@ -35,7 +37,7 @@ class ModelHasRolesController extends Controller
         $modelRoles = $model->roles;
         $allRoles = $this->allRoles();
 
-        return Inertia::render('Authorization/ModelHasRoles/Index',  compact('modelRoles', 'allRoles'));
+        return Inertia::render($this->indexComponent,  compact('modelRoles', 'allRoles'));
     }
 
     public function store(Request $request)
@@ -46,7 +48,7 @@ class ModelHasRolesController extends Controller
         $modelRoles = $model->roles;
         $allRoles = $this->allRoles();
 
-        return Inertia::render('Authorization/ModelHasRoles/Index',  compact('modelRoles', 'allRoles'));
+        return Inertia::render($this->indexComponent,  compact('modelRoles', 'allRoles'));
     }
 
     public function destroy($configName, $modelId, $roleId)
@@ -57,7 +59,7 @@ class ModelHasRolesController extends Controller
         $modelRoles = $model->roles;
         $allRoles = $this->allRoles();
 
-        return Inertia::render('Authorization/ModelHasRoles/Index',  compact('modelRoles', 'allRoles'));
+        return Inertia::render($this->indexComponent,  compact('modelRoles', 'allRoles'));
     }
 
     public function allModels()

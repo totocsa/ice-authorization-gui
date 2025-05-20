@@ -5,6 +5,7 @@ namespace Totocsa\AuthorizationGUI\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Totocsa\AuthorizationGUI\Http\Models\Role;
 use Inertia\Inertia;
@@ -164,6 +165,20 @@ class RoleController extends IcseusdController
                 ],
             ],
         ];
+    }
+
+    public function setVueComponents($prefix = '')
+    {
+        $name = last(explode('\\', $this::class));
+        $name = substr($name, 0, strlen($name) - strlen('Controller'));
+        $prefix .= Str::plural($name);
+
+        $routes = $this->getRoutes();
+
+        $this->vueComponents = [];
+        foreach ($routes as $k => $v) {
+            $this->vueComponents[$k] = "../../../vendor/totocsa/ice-authorization-gui/resources/js/Pages/$prefix/" . ucfirst(strtolower($k));
+        }
     }
 
     /*public function allRoles()
