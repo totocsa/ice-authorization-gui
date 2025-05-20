@@ -1,6 +1,6 @@
 import { ref, toRaw } from "vue"
 import { router } from "@inertiajs/vue3"
-import { useModalLiFoStore } from "@IceModalLiFo/Components/totocsa/ModalLiFo/ModalLiFoStore.js"
+import { useModalLiFoStore } from "@IceModalLiFo/Components/ModalLiFo/ModalLiFoStore.js"
 
 export function useRoleHasPermissions(props) {
     const allPermissions = ref([])

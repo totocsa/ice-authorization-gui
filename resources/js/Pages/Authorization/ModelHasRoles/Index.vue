@@ -3,12 +3,12 @@ import { watch } from 'vue'
 import { Link } from '@inertiajs/vue3'
 import { useAuthorization } from "../useAuthorization.js"
 import { useModelHasRoles } from "./useModelHasRoles.js"
-import { useDestroyItemForm } from "@IceIcseusd/Components/totocsa/Icseusd/js/useDestroyItemForm.js"
+import { useDestroyItemForm } from "@IceIcseusd/Components/Icseusd/js/useDestroyItemForm.js"
 import IceLayout from '@IceDatabaseTranslationLocally/Layouts/IceLayout.vue'
-import ControllerMenu from "@IceIcseusd/Components/totocsa/Icseusd/ControllerMenu.vue"
-import ActionMenu from '@IceIcseusd/Components/totocsa/Icseusd/ActionMenu/ActionMenu.vue';
+import ControllerMenu from "@IceIcseusd/Components/Icseusd/ControllerMenu.vue"
+import ActionMenu from '@IceIcseusd/Components/Icseusd/ActionMenu/ActionMenu.vue';
 import GenericsIndex from "@IceIcseusd/Pages/Icseusd/Generics/Index.vue";
-import LocalTranslation from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue";
+import LocalTranslation from "@IceDatabaseTranslationLocally/Components/LocalTranslation/LocalTranslation.vue";
 
 const props = defineProps({
     userRoles: Object,

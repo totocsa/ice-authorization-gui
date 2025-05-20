@@ -3,10 +3,10 @@ import { Link } from '@inertiajs/vue3'
 import { useAuthorization } from "../useAuthorization.js"
 import { usePermissions } from "./usePermissions.js";
 import IceLayout from '@IceDatabaseTranslationLocally/Layouts/IceLayout.vue'
-import IcseusdIndex from '@IceIcseusd/Components/totocsa/Icseusd/Index.vue';
-import ControllerMenu from "@IceIcseusd/Components/totocsa/Icseusd/ControllerMenu.vue"
-import ActionMenu from '@IceIcseusd/Components/totocsa/Icseusd/ActionMenu/ActionMenu.vue';
-import LocalTranslation from "@IceDatabaseTranslationLocally/Components/totocsa/LocalTranslation/LocalTranslation.vue";
+import IcseusdIndex from '@IceIcseusd/Components/Icseusd/Index.vue';
+import ControllerMenu from "@IceIcseusd/Components/Icseusd/ControllerMenu.vue"
+import ActionMenu from '@IceIcseusd/Components/Icseusd/ActionMenu/ActionMenu.vue';
+import LocalTranslation from "@IceDatabaseTranslationLocally/Components/LocalTranslation/LocalTranslation.vue";
 
 const props = defineProps({
     userRoles: Object,
