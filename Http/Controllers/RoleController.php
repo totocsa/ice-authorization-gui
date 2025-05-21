@@ -47,13 +47,16 @@ class RoleController extends IcseusdController
         'roles-name' => '',
     ];
 
-    public $conditions = [
-        'roles-name' => [
-            'operator' => 'ilike',
-            'value' => "%{{roles-name}}%",
-            'boolean' => 'and',
-        ],
-    ];
+    public function conditions()
+    {
+        return [
+            'roles-name' => [
+                'operator' => $this->ilikeORLike,
+                'value' => "%{{roles-name}}%",
+                'boolean' => 'and',
+            ],
+        ];
+    }
 
     public function fields()
     {
@@ -99,9 +102,9 @@ class RoleController extends IcseusdController
                 "$t0.name as $t0-name",
             ]);
 
-        foreach ($this->conditions as $k => $v) {
+        foreach ($this->conditions() as $k => $v) {
             if ($this->filters[$k] > 0) {
-                $cond = $this->conditions[$k];
+                $cond = $this->conditions()[$k];
                 $value = strtr($cond['value'], $this->replaceFieldToValue());
                 $query->where(str_replace('-', '.', $k), $cond['operator'], $value, $cond['boolean']);
             }

@@ -57,38 +57,41 @@ class PermissionController extends IcseusdController
         'permissions-guard_name' => '',
     ];
 
-    public $conditions = [
-        'routes-name' => [
-            'operator' => 'ilike',
-            'value' => "%{{routes-name}}%",
-            'boolean' => 'and',
-        ],
-        'routes-uri' => [
-            'operator' => 'ilike',
-            'value' => "%{{routes-uri}}%",
-            'boolean' => 'and',
-        ],
-        'routes-methods' => [
-            'operator' => 'ilike',
-            'value' => "%{{routes-methods}}%",
-            'boolean' => 'and',
-        ],
-        'permissions-id' => [
-            'operator' => 'null',
-            'value' => "{{permissions-id}}",
-            'boolean' => 'and',
-        ],
-        'permissions-name' => [
-            'operator' => 'ilike',
-            'value' => "%{{permissions-name}}%",
-            'boolean' => 'and',
-        ],
-        'permissions-guard_name' => [
-            'operator' => 'ilike',
-            'value' => "%{{permissions-guard_name}}%",
-            'boolean' => 'and',
-        ],
-    ];
+    public function conditions()
+    {
+        return   [
+            'routes-name' => [
+                'operator' => $this->ilikeORLike,
+                'value' => "%{{routes-name}}%",
+                'boolean' => 'and',
+            ],
+            'routes-uri' => [
+                'operator' => $this->ilikeORLike,
+                'value' => "%{{routes-uri}}%",
+                'boolean' => 'and',
+            ],
+            'routes-methods' => [
+                'operator' => $this->ilikeORLike,
+                'value' => "%{{routes-methods}}%",
+                'boolean' => 'and',
+            ],
+            'permissions-id' => [
+                'operator' => 'null',
+                'value' => "{{permissions-id}}",
+                'boolean' => 'and',
+            ],
+            'permissions-name' => [
+                'operator' => $this->ilikeORLike,
+                'value' => "%{{permissions-name}}%",
+                'boolean' => 'and',
+            ],
+            'permissions-guard_name' => [
+                'operator' => $this->ilikeORLike,
+                'value' => "%{{permissions-guard_name}}%",
+                'boolean' => 'and',
+            ],
+        ];
+    }
 
     public function fields()
     {
@@ -244,9 +247,9 @@ class PermissionController extends IcseusdController
             ])
             ->leftJoin($t1, "$t0.name", '=', "$t1.route_name");
 
-        foreach ($this->conditions as $k => $v) {
+        foreach ($this->conditions() as $k => $v) {
             if ($this->filters[$k] > '') {
-                $cond = $this->conditions[$k];
+                $cond = $this->conditions()[$k];
                 $value = strtr($cond['value'], $this->replaceFieldToValue());
 
                 if ($cond['operator'] === 'null') {
