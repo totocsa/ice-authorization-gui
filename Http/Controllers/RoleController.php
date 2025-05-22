@@ -103,7 +103,7 @@ class RoleController extends IcseusdController
             ]);
 
         foreach ($this->conditions() as $k => $v) {
-            if ($this->filters[$k] > 0) {
+            if ($this->filters[$k] > '') {
                 $cond = $this->conditions()[$k];
                 $value = strtr($cond['value'], $this->replaceFieldToValue());
                 $query->where(str_replace('-', '.', $k), $cond['operator'], $value, $cond['boolean']);
