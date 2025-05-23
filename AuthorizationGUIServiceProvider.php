@@ -29,6 +29,6 @@ class AuthorizationGUIServiceProvider extends ServiceProvider
         }
 
         $this->publishes($paths, $groups);
-        $this->publishes([__DIR__ . '/resources' =>  resource_path()], "$groupsBase-resources");
+        $this->publishes([__DIR__ . '/resources/js' =>  resource_path("js/totocsa/$groupsBase")], "$groupsBase-resources");
     }
 }
